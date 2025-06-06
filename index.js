@@ -3,6 +3,11 @@
 let http = require('http');
 let fs = require('fs');
 
+const a = 1;
+a = 2;
+
+console.log(a);
+
 /*
 修改完要重启服务器 node index.js
 createServer 创建服务器  传入一个回调函数
