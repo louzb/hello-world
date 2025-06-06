@@ -3,10 +3,12 @@
 let http = require('http');
 let fs = require('fs');
 
-const a = 1;
-a = 2;
+const b = 1;
 
-console.log(a);
+b = 2;
+
+console.log(b);
+
 
 /*
 修改完要重启服务器 node index.js
@@ -28,25 +30,25 @@ res.end();
 可以简写为res.end('index');
 
 */
-function log(str){
+function log(str) {
     console.log(str);
 }
 
-http.createServer((req, res)=>{
+http.createServer((req, res) => {
     log("Hello, http");
 
-    fs.readFile(`./${req.url}`, (err, data)=>{
-        if (err){
+    fs.readFile(`./${req.url}`, (err, data) => {
+        if (err) {
             log(err);
             res.writeHead(404);
             res.end('404 not find');
-        } else{
+        } else {
             res.writeHead(200);
             res.end(data);
         }
     });
     log(req.url);
 
-/*     res.write('index');
-    res.end(); */
+    /*     res.write('index');
+        res.end(); */
 }).listen(8888);
